@@ -1,0 +1,10 @@
+.desktopNavigationContainer{
+    display: grid;
+    grid-template-columns: repeat(20, 1fr);
+    
+
+}
+
+.navigationLogotype {
+    width: 100px;
+}
