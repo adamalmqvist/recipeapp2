@@ -1,5 +1,9 @@
 body {
     margin: 0;
     padding: 0;
-    
+    background-color: #d5fefd;
+    background-image: linear-gradient(315deg, #d5fefd 0%, #fffcff 74%);
+    font-family: Verdana, Geneva, Tahoma, sans-serif
+
 }
+
