@@ -10,11 +10,11 @@ export const Desktopnavigation = () => {
     const history = useHistory()
     const [authenticatedUser, setAuthenticatedUser] = useContext(UserContext)
 
-    const displaySignInButtonIfUserIsAuthenticated = () => {
+    const displaySignInButtonIfUserIsntAuthenticated = () => {
         
        return authenticatedUser
-       ? <Profile/> 
-       : <span onClick={() => history.push(RoutingPath.loginView)}>Login</span>
+       ? <div className="profile"><Profile/> </div>
+       : <span className="signInButton" onClick={() => history.push(RoutingPath.loginView)}>Login</span>
            
     }
 
@@ -23,7 +23,7 @@ export const Desktopnavigation = () => {
             <img className="navigationLogotype" alt="Error..." src={Logotype}></img>
             <span onClick={() => history.push(RoutingPath.homeView)}>Home</span>
             <span onClick={() => history.push(RoutingPath.postView)}>Post Recipe</span>
-            {displaySignInButtonIfUserIsAuthenticated()}
+            {displaySignInButtonIfUserIsntAuthenticated()}
         </div>
     )
 }

@@ -11,7 +11,7 @@ export const LoginView = () => {
 
     const setloginCredentialsFunction = (e : any) => {
         setloginCredentials({...loginCredentials, [e.target.name]: e.target.value})
-      }
+}
      
 
     const signIn = () => {

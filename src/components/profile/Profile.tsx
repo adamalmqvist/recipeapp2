@@ -5,10 +5,18 @@ import '../profile/Profile.css'
 export const Profile = () => {
     const [authenticatedUser, setAuthenticatedUser] = useContext(UserContext)
     return (
-        <div>
+        <div className="profileWrapper">
             <img src="https://thispersondoesnotexist.com/image" alt="" className="profileImg"/>
+            <div className="usernameP">{authenticatedUser.username}</div>
+            <div className="profileDropdown">
+                <span>
+                    logout
+                </span>
 
-            {authenticatedUser.username}
+            </div>
+
+
+
         </div>
     )
 }

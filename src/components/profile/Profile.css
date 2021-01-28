@@ -1,3 +1,22 @@
 .profileImg {
     width: 50px;
+    border-radius: 50%;
 }
+.usernameP {
+    color: green;
+}
+.profileDropdown {
+    display: none;
+    position: absolute;
+}
+
+.profileWrapper:hover .profileDropdown{
+    display: block;
+}
+.profileDropdown span {
+    display: block;
+    padding: 20px;
+    cursor: pointer;
+    border: 2px solid black;
+}
+
