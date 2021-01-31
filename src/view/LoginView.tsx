@@ -20,8 +20,7 @@ export const LoginView = () => {
         history.push(RoutingPath.homeView)
     }
     return (
-        <div>
-            
+        <div> 
            <form>
             <input 
             placeholder="Username" 

@@ -1,0 +1,15 @@
+.ulTabsWrapper {
+ list-style-type: none;
+}
+
+.liTabs {
+ display: inline;
+ cursor: pointer;
+ padding: 10%;
+ transition: 0.1s;
+}
+
+.liTabs:hover {
+    font-size: 1.1rem;
+    transition: 0.3s;
+}
