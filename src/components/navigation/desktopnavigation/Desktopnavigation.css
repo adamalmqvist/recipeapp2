@@ -16,6 +16,8 @@
     padding: 10%;
     margin-top: 10px;
     transition: 0.1s;
+    width: 100px;
+    cursor: pointer;
 }
 .signInButton:hover {
     font-size: 1.1rem;
