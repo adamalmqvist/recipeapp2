@@ -3,14 +3,15 @@ import { loginCredentials } from '../shared/interface/interface'
 import { useHistory } from 'react-router-dom'
 import RoutingPath from '../routes/RoutingPath'
 import {UserContext} from '../shared/provider/UserProvider'
+import { queryByDisplayValue } from '@testing-library/react'
 
 export const LoginView = () => {
     const history = useHistory()
     const [loginCredentials, setloginCredentials] = useState<loginCredentials>({username: '', password: ''})
     const [authenticatedUser, setAuthenticatedUser] = useContext(UserContext)
 
-    const setloginCredentialsFunction = (e : any) => {
-        setloginCredentials({...loginCredentials, [e.target.name]: e.target.value})
+    const setloginCredentialsFunction = (e :any) => {
+       setloginCredentials({...loginCredentials, [e.target.name]: e.target.value})
 }
      
 
@@ -19,6 +20,7 @@ export const LoginView = () => {
         setAuthenticatedUser(loginCredentials)
         history.push(RoutingPath.homeView)
     }
+    
     return (
         <div> 
            <form>
@@ -26,12 +28,12 @@ export const LoginView = () => {
             placeholder="Username" 
             name="username"
             value={loginCredentials.username}
-            onChange={setloginCredentialsFunction} /> <br/>
+            onChange={e => setloginCredentialsFunction(e)} /> <br/>
             <input type="password"
             placeholder="Password" 
             name="password"
             value={loginCredentials.password}
-            onChange={setloginCredentialsFunction}/>
+            onChange={e => setloginCredentialsFunction(e)}/>
             <button onClick={() => signIn()}>Sign in</button>
             </form>
         </div>
