@@ -1,30 +1,11 @@
 .desktopNavigationContainer{
     display: grid;
-    grid-template-columns: repeat(20, 1fr);
+    grid-template-columns: repeat(10, 1fr);
     margin-top: 15px;
 }
 
-.navigationLogotype {
-    width: 100px;
-    grid-column: 2/3;
-}
-.profile {
-    grid-column: 15/16;
-}
-.signInButton{
-    grid-column: 15/16;
-    padding: 10%;
-    margin-top: 10px;
-    transition: 0.1s;
-    width: 100px;
-    cursor: pointer;
-}
-.signInButton:hover {
-    font-size: 1.1rem;
-    transition: 0.3s;
-}
 .deskotopNavigationTabs {
-    grid-column: 7/9;
+    grid-column: 4;
     align-items: center;
     justify-self: center;
 }

@@ -15,6 +15,7 @@ export const ProfileDropDown = () => {
 
     return (
         <div className="profileDropdown">
+            <span onClick={() => history.push(RoutingPath.settingsVeiw)}>Settings</span>
            <span onClick={() => logOut()}>
                logout
            </span>

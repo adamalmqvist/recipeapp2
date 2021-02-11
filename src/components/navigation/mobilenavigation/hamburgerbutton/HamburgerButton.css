@@ -12,6 +12,7 @@
 }
 .toggle-button_line {
     width: 28px;
-    height: 3px;
+    height: 4px;
     background-color: black;
+    border-radius: 3px;
 }

@@ -5,11 +5,21 @@ import {HomeView} from '../view/HomeView'
 import {LoginView} from '../view/LoginView'
 import {PostView} from '../view/PostView'
 import RoutingPath from './RoutingPath'
+import { SettingsView } from '../view/authenticatedveiws/SettingsView'
+import { homedir } from 'os'
 
 
 export const Routes = (props: { children: React.ReactChild }) => {
     const [authenticatedUser, setAuthenticatedUser] = useContext(UserContext)
     const {children} = props;
+
+   const blockRouteIfAuthenticated = (allowedVeiw: React.FC, notAllowedVeiw: React.FC) => {
+     return !authenticatedUser ? allowedVeiw : notAllowedVeiw
+   }
+
+   const authenticatedRequired = (allowed: React.FC, notAllowed: React.FC) => {
+       return authenticatedUser ? allowed : notAllowed;
+   }
 
     useEffect (() => {
         if (localStorage.getItem("user")) {
@@ -22,8 +32,9 @@ export const Routes = (props: { children: React.ReactChild }) => {
            {children}
            <Switch>
               <Route exact path={RoutingPath.homeView} component={HomeView}/>
-              <Route exact path={RoutingPath.loginView} component={LoginView}/>
+              <Route exact path={RoutingPath.loginView} component={blockRouteIfAuthenticated(LoginView, HomeView)}/>
               <Route exact path={RoutingPath.postView} component={PostView}/>
+              <Route exact path={RoutingPath.settingsVeiw} component={authenticatedRequired(SettingsView,LoginView)}/>
            </Switch>
         </BrowserRouter>
     )

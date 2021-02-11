@@ -1,5 +1,4 @@
 import './Mobilenavigation.css'
-import Logotype from '../../../shared/images/foodlogo.svg'
 import { HamburgerButton } from './hamburgerbutton/HamburgerButton'
 import { SideBar } from './sidebar/SideBar'
 import{ useState } from 'react'
@@ -10,7 +9,6 @@ export const Mobilenavigation = () => {
     return (
         <div>
             <HamburgerButton drawerHandler={setOpenDrawer}/>
-            <img className="logotype" src={Logotype}></img>
             <SideBar drawerIsOpen={openDrawer} drawerHandler={setOpenDrawer}/>
             {!openDrawer || <BackDrop drawerHandler={setOpenDrawer}/>}
         </div>
