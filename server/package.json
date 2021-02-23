@@ -1,0 +1,17 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [ 
+    "REST_API",
+    "Express",
+    "MongoDB",
+    "Mongosse"
+  ],
+  "author": "Adam Almqvist (adam.almqvist99@gmail.com)",
+  "license": "ISC"
+}
