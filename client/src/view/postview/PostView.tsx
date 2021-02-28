@@ -1,3 +1,5 @@
+import './PostView.css'
+
 export const PostView = () => {
     return (
         <div>

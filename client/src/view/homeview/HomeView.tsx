@@ -1,7 +1,7 @@
 
 import { useState, useEffect } from 'react'
-import StarWarsAPIService from '../shared/api/service/StarWarsAPIService'
-
+import StarWarsAPIService from '../../shared/api/service/StarWarsAPIService'
+import './HomeView.css'
 
 
 export const HomeView = () => {

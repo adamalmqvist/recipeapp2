@@ -1,9 +1,9 @@
 import { useState, useContext } from 'react'
-import { loginCredentials } from '../shared/interface/interface'
+import { loginCredentials } from '../../shared/interface/interface'
 import { useHistory } from 'react-router-dom'
-import RoutingPath from '../routes/RoutingPath'
-import {UserContext} from '../shared/provider/UserProvider'
-import { queryByDisplayValue } from '@testing-library/react'
+import RoutingPath from '../../routes/RoutingPath'
+import {UserContext} from '../../shared/provider/UserProvider'
+import './LoginView.css'
 
 export const LoginView = () => {
     const history = useHistory()
@@ -22,20 +22,26 @@ export const LoginView = () => {
     }
     
     return (
-        <div> 
+        <div className="loginView-container"> 
            <form>
-            <input 
+           <div className="input-container">
+           <input 
             placeholder="Username" 
             name="username"
             value={loginCredentials.username}
             onChange={e => setloginCredentialsFunction(e)} /> <br/>
-            <input type="password"
+           </div>
+            
+           <div className="input-container">
+           <input 
+            type="password"
             placeholder="Password" 
             name="password"
             value={loginCredentials.password}
             onChange={e => setloginCredentialsFunction(e)}/>
-            <button onClick={() => signIn()}>Sign in</button>
-            </form>
+           <button className="btn" onClick={() => signIn()}>Sign in</button>
+           </div>
+           </form>
         </div>
     )
 }
