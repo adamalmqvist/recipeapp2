@@ -11,6 +11,12 @@ application.use(express.json())
 application.use(helmet())
 application.use(morgan("common"))
 
+//Gör ett anrop gentemot ditt backend som retunerar valfri data
+application.get("/returnString", (reg, res) => {
+    res.send("Random string!")
+
+})
+
 UserRoutes.routes(application)
 application.use(Middlewares.notFound)
 application.use(Middlewares.errorHandler)

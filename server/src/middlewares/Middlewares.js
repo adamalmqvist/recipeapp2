@@ -8,7 +8,7 @@ const notFound = (request, response, next) => {
 	next(error)
 }
 
-// eslint-disable-next-line no-unused-vars
+
 const errorHandler = (error, request, response, next) => {
 	const statusCode = response.statusCode === 200 ? 500 : response.statusCode
 	response.status(statusCode)
