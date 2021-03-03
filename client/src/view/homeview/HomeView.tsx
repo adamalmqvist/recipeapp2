@@ -28,7 +28,7 @@ useEffect(() => {
 },[characterNumber])
    
     return (
-        <div>
+        <div className="starwarsContainer">
             <h1>Name: {starwarsData?.data?.name}</h1>
             <h1>Gender: {starwarsData?.data?.gender}</h1>
             <h1>birth year: {starwarsData?.data?.birth_year}</h1>

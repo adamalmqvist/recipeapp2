@@ -31,7 +31,8 @@ export const Navigation = () => {
     
     return (
         <div className="navigationContainer">
-            {displayNavigationDependingOnDevice()}
+            {displayNavigationDependingOnDevice()} 
+            <img className="logotype" src="https://www.flaticon.com/svg/vstatic/svg/2921/2921822.svg?token=exp=1614784451~hmac=2afd6c6e6f341ab657c572a73d34f4d1" ></img>
             {displaySignInButtonIfUserIsntAuthenticated()}
         </div>
     )
