@@ -2,6 +2,10 @@
     display: grid;
     grid-template-columns: repeat(10, 1fr);
     margin-top: 15px;
+    background-color: white;
+    color: #57b7eb;
+    font-weight: bold;
+
 }
 .profile {
     grid-column: 8/9;

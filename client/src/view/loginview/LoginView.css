@@ -4,7 +4,7 @@
 	margin-top: 25vh;
 }
 .text-center{
-	color:black;	
+	color:#FFFFFF;	
 	text-transform:uppercase;
     font-size: 23px;
     margin: -50px 0 80px 0;
@@ -29,29 +29,29 @@
 	top:0px;
 	left:0px;
 	font-size:16px;
-	color: black;	
+	color: #FFFFFF;	
     pointer-event: none;
 	transition: all 0.5s ease-in-out;
 }
 .input-container input{ 
   border:0;
-  border-bottom:1px solid #555;  
+  border-bottom:1px solid #FFFFFF;  
   background:transparent;
   width:100%;
   padding:8px 0 5px 0;
   font-size:16px;
-  color: black;
+  color: #FFFFFF;
 }
 .input-container input:focus{ 
  border:none;	
  outline:none;
- border-bottom:1px solid black;	
+ border-bottom:1px solid #FFFFFF;	
 }
 .btn{
-	color: black;
+	color: #FFFFFF;
 	outline: none;
-	border: 2px solid black;
-	background-color: #7EE8FA;
+	border: 2px solid #FFFFFF;
+	background-color: #57b7eb;;
 	padding:10px 20px;
 	text-transform:uppercase;
 	margin-top:50px;
@@ -65,4 +65,7 @@
 	top:-12px;
 	font-size:12px;
 	
+}
+::placeholder {
+	color: #ffffff;
 }

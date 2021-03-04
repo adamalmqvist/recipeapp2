@@ -26,6 +26,7 @@ export const LoginView = () => {
            <form>
            <div className="input-container">
            <input 
+            className="input"
             placeholder="Username" 
             name="username"
             value={loginCredentials.username}
@@ -34,6 +35,7 @@ export const LoginView = () => {
             
            <div className="input-container">
            <input 
+            className="input"
             type="password"
             placeholder="Password" 
             name="password"

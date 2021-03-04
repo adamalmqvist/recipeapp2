@@ -8,7 +8,9 @@ export const Mobilenavigation = () => {
     const [openDrawer, setOpenDrawer ] = useState<boolean>(false)
     return (
         <div>
+            <div className="hamburgerContainer">
             <HamburgerButton drawerHandler={setOpenDrawer}/>
+            </div>
             <SideBar drawerIsOpen={openDrawer} drawerHandler={setOpenDrawer}/>
             {!openDrawer || <BackDrop drawerHandler={setOpenDrawer}/>}
         </div>
