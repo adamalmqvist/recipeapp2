@@ -9,6 +9,7 @@ import { useHistory } from 'react-router-dom'
 import {Profile} from '../../components/profile/Profile'
 import RoutingPath from '../../../src/routes/RoutingPath'
 import { UserContext } from '../../../src/shared/provider/UserProvider'
+import userEvent from '@testing-library/user-event'
 
 
 
@@ -16,11 +17,6 @@ export const Navigation = () => {
     const history = useHistory()
     const [authenticatedUser, setAuthenticatedUser] = useContext(UserContext)
 
-    const displaySignInButtonIfUserIsntAuthenticated = () => { 
-       return authenticatedUser
-          ? <div className="profile"><Profile/> </div>
-          : <span className="signInButton" onClick={() => history.push(RoutingPath.loginView)}>Sign In</span>
-    }
 
     const { height, width } = useWindowDimention()
     const displayNavigationDependingOnDevice = () => {
@@ -32,8 +28,11 @@ export const Navigation = () => {
     return (
         <div className="navigationContainer">
             {displayNavigationDependingOnDevice()} 
-            <img className="logotype" src="https://www.flaticon.com/svg/vstatic/svg/2921/2921822.svg?token=exp=1614784451~hmac=2afd6c6e6f341ab657c572a73d34f4d1" ></img>
-            {displaySignInButtonIfUserIsntAuthenticated()}
+            {
+                authenticatedUser.auth
+                ? <div className="profile"><Profile/> </div>
+                : <div className="divButton"><span className="signInButton" onClick={() => history.push(RoutingPath.loginView)}>Sign In</span><span className="CreateUserButton" onClick={() => history.push(RoutingPath.createUserView)}>Create User</span></div>
+            }
         </div>
     )
 }

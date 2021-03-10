@@ -1,5 +1,6 @@
 import Usermodel from "../models/User.model.js"
 import statusCode from "../../configurations/StatusCode.js"
+import jwt from "jsonwebtoken"
 
 const createUser = async (request, response) => {
 
@@ -36,7 +37,7 @@ const deleteUser = async (request, response) =>{
     }
     catch (error) {
         response.status(statusCode.INTERNAL_SERVER_ERROR).send({
-            message: "error while trycing to delete user with ID " + userId,
+            message: "error while trying to delete user with ID " + userId,
             error: error.message
         })
     }
@@ -84,6 +85,50 @@ const getUserById = async (request, response) => {
     }) 
     }
 }
+const signInUser = async (request, response) => {
+   
+    
+    try {
+      const databaseResponse = await Usermodel.findOne({
+        username: request.body.username
+      });
+      console.log(databaseResponse)
+      if (!databaseResponse)
+        return response.status(400).json({
+          message: "User Not Exist"
+        });
+
+    
+      
+      console.log(request.body.password)
+      console.log(databaseResponse.password)
+      
+      if(request.body.password !== databaseResponse.password) {
+        console.log("invalid password")
+        return response.status(401).send({
+            token: null,
+            message: "Invalid Password!"
+          }); 
+      }
+        console.log("THIS IS THE USER:", databaseResponse)
+        const token = jwt.sign({ id: databaseResponse._id }, "jwtSecret.secret", { expiresIn: 60 * 60 });
+        console.log(token)
+        const username = databaseResponse.username 
+         response.status(200).send({
+            username,
+            token,
+            message: 'user found & logged in',
+            auth: true
+        });
+    
+    } catch (e) {
+      console.error(e);
+      response.status(500).json({
+        message: "Server Error"
+      });
+    }
+  }
+
 
 
 export default {
@@ -92,5 +137,6 @@ export default {
     deleteUser,
     updateUser,
     queryUsername,
-    getUserById
+    getUserById,
+    signInUser
 }

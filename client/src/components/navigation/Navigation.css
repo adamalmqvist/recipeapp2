@@ -1,28 +1,43 @@
 .navigationContainer {
     display: grid;
     grid-template-columns: repeat(10, 1fr);
-    margin-top: 15px;
     background-color: white;
     color: #57b7eb;
     font-weight: bold;
-
 }
 .profile {
-    grid-column: 8/9;
+    grid-column: 6/8;
 }
 .signInButton{
-    grid-column: 8/9;
     padding: 10%;
-    margin-top: 10px;
     transition: 0.1s;
-    width: 100px;
+
     cursor: pointer;
 }
 .signInButton:hover {
     font-size: 1.1rem;
     transition: 0.3s;
 }
-.logotype {
-    width: 110px;
-    grid-column: 5/5;
+
+.CreateUserButton {
+    cursor: pointer;
+    transition: 0.1s;
 }
+.CreateUserButton:hover {
+    font-size: 1.1rem;
+    transition: 0.3s;
+}
+.divButton {
+    grid-column: 4/10;
+    margin-top: 25px;
+    margin-bottom: 20px;
+}
+
+@media only screen and (max-width: 400px) {
+    .divButton {
+      display: grid;
+      margin-top: 0;
+      grid-column: 5/10;
+      margin-bottom: 0;
+    }
+  }

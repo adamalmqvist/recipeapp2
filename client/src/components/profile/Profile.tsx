@@ -5,6 +5,7 @@ import { ProfileDropDown } from './profiledropdown/ProfileDropDown'
 
 export const Profile = () => {
     const [authenticatedUser, setAuthenticatedUser] = useContext(UserContext)
+    
     return (
         <div className="profileWrapper">
             <img src="https://thispersondoesnotexist.com/image" alt="" className="profileImg"/>

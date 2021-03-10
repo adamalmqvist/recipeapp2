@@ -8,8 +8,8 @@ export const ProfileDropDown = () => {
     const history = useHistory()
     const [authenticatedUser, setAuthenticatedUser] = useContext(UserContext)
     const logOut = () => {
-        setAuthenticatedUser(false)
-        localStorage.removeItem("user")
+        setAuthenticatedUser({})
+        localStorage.removeItem("JWT")
         history.push(RoutingPath.homeView)
      }
 

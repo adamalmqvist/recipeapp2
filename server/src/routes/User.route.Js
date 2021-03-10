@@ -7,5 +7,6 @@ const routes = application => {
     application.put("/user/:userId", userController.updateUser)
     application.get("/search", userController.queryUsername)
     application.get("/searchuser/:userId", userController.getUserById)
+    application.post("/signIn", userController.signInUser)
 }
 export default {routes}

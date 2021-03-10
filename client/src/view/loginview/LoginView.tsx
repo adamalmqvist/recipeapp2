@@ -4,22 +4,34 @@ import { useHistory } from 'react-router-dom'
 import RoutingPath from '../../routes/RoutingPath'
 import {UserContext} from '../../shared/provider/UserProvider'
 import './LoginView.css'
+import backendAPIService from '../../shared/api/service/BackendAPIService'
+import { ServerResponse } from 'http'
 
 export const LoginView = () => {
     const history = useHistory()
-    const [loginCredentials, setloginCredentials] = useState<loginCredentials>({username: '', password: ''})
+    const [loginUsername, setLoginUsername] = useState<string>('')
+    const [loginPassword, setLoginPassword] = useState<string>('')
+    const [serverData, setServerData] = useState<any>()
+    
     const [authenticatedUser, setAuthenticatedUser] = useContext(UserContext)
 
-    const setloginCredentialsFunction = (e :any) => {
-       setloginCredentials({...loginCredentials, [e.target.name]: e.target.value})
-}
-     
+  
 
-    const signIn = () => {
-        localStorage.setItem("user", loginCredentials.username)
-        setAuthenticatedUser(loginCredentials)
-        history.push(RoutingPath.homeView)
+    const serverResponse = (response: any) =>{
+        setServerData(response.data)
+        localStorage.setItem("JWT", response.data.token)
+        setAuthenticatedUser(serverData)
+       
     }
+      console.log(authenticatedUser)
+
+    const signIn =  () => {
+       backendAPIService.signInUser({username: loginUsername,password: loginPassword})
+       .then(response => serverResponse(response))
+       .catch(error => console.log(error))
+       .finally(() => console.log(authenticatedUser))
+    }
+  
     
     return (
         <div className="loginView-container"> 
@@ -29,21 +41,19 @@ export const LoginView = () => {
             className="input"
             placeholder="Username" 
             name="username"
-            value={loginCredentials.username}
-            onChange={e => setloginCredentialsFunction(e)} /> <br/>
+            onChange={e => setLoginUsername(e.target.value)} /> <br/>
            </div>
-            
+           
            <div className="input-container">
            <input 
             className="input"
             type="password"
             placeholder="Password" 
             name="password"
-            value={loginCredentials.password}
-            onChange={e => setloginCredentialsFunction(e)}/>
+            onChange={e => setLoginPassword(e.target.value)}/>
            <button className="btn" onClick={() => signIn()}>Sign in</button>
            </div>
-           </form>
-        </div>
+          </form>
+       </div>
     )
 }
