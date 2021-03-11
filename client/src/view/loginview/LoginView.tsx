@@ -12,7 +12,7 @@ export const LoginView = () => {
     const [loginUsername, setLoginUsername] = useState<string>('')
     const [loginPassword, setLoginPassword] = useState<string>('')
     const [serverData, setServerData] = useState<any>()
-    
+    const [serverDataMessage, setServerDataMessage] = useState<any>("")
     const [authenticatedUser, setAuthenticatedUser] = useContext(UserContext)
 
   
@@ -20,7 +20,7 @@ export const LoginView = () => {
     const serverResponse = (response: any) =>{
         setServerData(response.data)
         setAuthenticatedUser(serverData)
-       
+        setServerDataMessage(response.data.message)
     }
       console.log(authenticatedUser)
 
@@ -34,6 +34,8 @@ export const LoginView = () => {
     
     return (
         <div className="loginView-container"> 
+           <p>{serverDataMessage}</p>
+
            <form>
            <div className="input-container">
            <input 

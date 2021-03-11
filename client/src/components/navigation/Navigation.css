@@ -28,7 +28,7 @@
     transition: 0.3s;
 }
 .divButton {
-    grid-column: 4/10;
+    grid-column: 8/10;
     margin-top: 25px;
     margin-bottom: 20px;
 }
@@ -37,7 +37,26 @@
     .divButton {
       display: grid;
       margin-top: 0;
-      grid-column: 5/10;
+      grid-column: 6/10;
       margin-bottom: 0;
     }
   }
+
+  @media only screen and (min-width: 400px) {
+      .divButton {
+          grid-column: 4/10;
+      }
+     
+  }
+  @media only screen and (min-width: 600px) {
+    .divButton {
+        grid-column: 6/10;
+    }
+   
+}
+  @media only screen and (min-width: 800px) {
+    .divButton {
+        grid-column: 7/10;
+    }
+   
+}

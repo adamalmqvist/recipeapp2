@@ -9,7 +9,16 @@ const signInUser = (signInData: object) => {
     return http.post("/signIn", signInData)
 }
 
+const createPost = (postData : object) => {
+    return http.post("/post", postData)
+}
+
+const getallPosts = () => {
+    return http.get("/post")
+}
 export default {
     createUser,
-    signInUser
+    signInUser,
+    createPost,
+    getallPosts
 }

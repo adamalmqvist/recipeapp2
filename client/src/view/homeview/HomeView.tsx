@@ -1,40 +1,41 @@
 
 import { useState, useEffect } from 'react'
-import StarWarsAPIService from '../../shared/api/service/StarWarsAPIService'
+import BackendAPIService from '../../shared/api/service/BackendAPIService'
 import './HomeView.css'
 
 
+
 export const HomeView = () => {
-  
-  const [starwarsData, setStarwarsData] = useState<any>()
-  
-  const [characterNumber, setCharacterNumber] = useState<number>(1)
+    const [posts, setPosts] = useState<any>([{}])
 
-  const makuSureCharacterNumberNeverGetsBelow = () => {
-      (characterNumber <= 1) ? setCharacterNumber(1) : setCharacterNumber(characterNumber -1)
-  }
-
-  const getDataFromStarWarsAPI = async () => {
-    try {
-        const response = await StarWarsAPIService.getStarWarsCharacter(characterNumber)
-        setStarwarsData(response)
-    }catch (error){
-        console.error()
+    const getDataFromBackend = async () => {
+        try {
+            const response = await BackendAPIService.getallPosts()
+            setPosts(response.data)
+            console.log(posts)
+        }
+        catch (error) {
+            console.log(error)
+        }
     }
-}
+    useEffect(() => {
+       getDataFromBackend()
 
-useEffect(() => {
-    getDataFromStarWarsAPI()
-},[characterNumber])
+      },[])
+ 
+ 
    
     return (
-        <div className="starwarsContainer">
-            <h1>Name: {starwarsData?.data?.name}</h1>
-            <h1>Gender: {starwarsData?.data?.gender}</h1>
-            <h1>birth year: {starwarsData?.data?.birth_year}</h1>
-            <h1>Height: {starwarsData?.data?.height}</h1>
-            <button onClick={()=> makuSureCharacterNumberNeverGetsBelow()}>Get previous character</button>
-            <button onClick={()=> setCharacterNumber(characterNumber + 1)}>Get next character</button>
-        </div>
-    )
+        <div className="container">
+        {posts.map((item: any) => (
+          <p className="containerItem" key={item.title}>
+            {Object.values(item).map((val: any) => (
+             
+             <div><p>{val}</p></div>
+             
+            ))}
+          </p>
+        ))}
+      </div>
+      )
 }
