@@ -32,6 +32,13 @@
     margin-top: 25px;
     margin-bottom: 20px;
 }
+.logoTypeDiv {
+  width: 20px;
+  grid-column: 5/7;
+}
+.logoType {
+    width: 100px;
+}
 
 @media only screen and (max-width: 400px) {
     .divButton {
@@ -40,6 +47,13 @@
       grid-column: 6/10;
       margin-bottom: 0;
     }
+  }
+  @media only screen and (max-width: 1000px) {
+    .divButton {
+      display: none;
+      
+    }
+
   }
 
   @media only screen and (min-width: 400px) {

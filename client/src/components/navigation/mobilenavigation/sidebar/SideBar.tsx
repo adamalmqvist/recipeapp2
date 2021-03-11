@@ -14,6 +14,8 @@ export const SideBar = (props: {drawerIsOpen: boolean, drawerHandler: Function }
             <ul className="ulTabsContainer">
             <li className="listTabs" onClick={() => history.push(RoutingPath.homeView)}>Home</li>
             <li className="listTabs" onClick={() => history.push(RoutingPath.postView)}>PostRecipe</li>
+            <li className="listTabs" onClick={() => history.push(RoutingPath.loginView)}>Sign In</li>
+            <li className="listTabs" onClick={() => history.push(RoutingPath.createUserView)}>Create User</li>
             </ul>
             </div>
             

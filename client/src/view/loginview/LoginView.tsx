@@ -17,20 +17,20 @@ export const LoginView = () => {
 
   
 
-    const serverResponse = (response: any) =>{
-        setServerData(response.data)
-        setAuthenticatedUser(serverData)
-        setServerDataMessage(response.data.message)
-    }
-      console.log(authenticatedUser)
-
-    const signIn =  () => {
-       backendAPIService.signInUser({username: loginUsername,password: loginPassword})
-       .then(response => serverResponse(response))
-       .catch(error => console.log(error))
-       .finally(() => console.log(authenticatedUser))
-    }
+ 
   
+
+
+    const signIn =  async() => {
+       try{
+       const response = await backendAPIService.signInUser({username: loginUsername,password: loginPassword})
+       setAuthenticatedUser(response)
+       console.log(authenticatedUser)
+       }
+       catch(error) {
+           console.log(error)
+        }
+    }
     
     return (
         <div className="loginView-container"> 

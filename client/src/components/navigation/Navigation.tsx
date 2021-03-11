@@ -9,7 +9,8 @@ import { useHistory } from 'react-router-dom'
 import {Profile} from '../../components/profile/Profile'
 import RoutingPath from '../../../src/routes/RoutingPath'
 import { UserContext } from '../../../src/shared/provider/UserProvider'
-import userEvent from '@testing-library/user-event'
+import logoType from "../../shared/images/fast-food.svg"
+
 
 
 
@@ -27,7 +28,8 @@ export const Navigation = () => {
     
     return (
         <div className="navigationContainer">
-            {displayNavigationDependingOnDevice()} 
+            <div className="navigationButton">{displayNavigationDependingOnDevice()} </div>
+           <div className="logoTypeDiv"> <img src={logoType} className="logoType"/></div>
             {
                 authenticatedUser.auth
                 ? <div className="profile"><Profile/> </div>

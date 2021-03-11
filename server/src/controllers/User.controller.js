@@ -100,6 +100,8 @@ const signInUser = async (request, response) => {
 
     
       
+        
+      
       console.log(request.body.password)
       console.log(databaseResponse.password)
       
@@ -112,9 +114,9 @@ const signInUser = async (request, response) => {
       }
         console.log("THIS IS THE USER:", databaseResponse)
        
-        const username = databaseResponse.username 
-         response.status(200).send({
-            username,
+        
+         response.status(200).json({
+            username: databaseResponse.username,
             message: 'user found & logged in',
             auth: true
         });
