@@ -1,6 +1,6 @@
 import Usermodel from "../models/User.model.js"
 import statusCode from "../../configurations/StatusCode.js"
-import jwt from "jsonwebtoken"
+
 
 const createUser = async (request, response) => {
 
@@ -106,17 +106,15 @@ const signInUser = async (request, response) => {
       if(request.body.password !== databaseResponse.password) {
         console.log("invalid password")
         return response.status(401).send({
-            token: null,
+            auth: false,
             message: "Invalid Password!"
           }); 
       }
         console.log("THIS IS THE USER:", databaseResponse)
-        const token = jwt.sign({ id: databaseResponse._id }, "jwtSecret.secret", { expiresIn: 60 * 60 });
-        console.log(token)
+       
         const username = databaseResponse.username 
          response.status(200).send({
             username,
-            token,
             message: 'user found & logged in',
             auth: true
         });

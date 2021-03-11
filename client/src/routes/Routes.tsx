@@ -1,6 +1,4 @@
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
-import {useEffect, useContext} from 'react'
-import {UserContext} from '../shared/provider/UserProvider'
 import {HomeView} from '../view/homeview/HomeView'
 import {LoginView} from '../view/loginview/LoginView'
 import {PostView} from '../view/postview/PostView'
@@ -11,22 +9,8 @@ import { homedir } from 'os'
 
 
 export const Routes = (props: { children: React.ReactChild }) => {
-    const [authenticatedUser, setAuthenticatedUser] = useContext(UserContext)
+
     const {children} = props;
-
-
-    const parseJWT = (token: any) => {
-        if (!token) { return; }
-        const base64Url = token.split('.')[1];
-        const base64 = base64Url.replace('-', '+').replace('_', '/');
-        const jwtToken = JSON.parse(window.atob(base64));
-        setAuthenticatedUser({ auth: true, id: jwtToken.id })
-    }
-
-    useEffect(() => {
-        parseJWT(localStorage.getItem('JWT'))
-        return () => { }
-    }, [])
 
     return (
         <BrowserRouter>

@@ -19,7 +19,6 @@ export const LoginView = () => {
 
     const serverResponse = (response: any) =>{
         setServerData(response.data)
-        localStorage.setItem("JWT", response.data.token)
         setAuthenticatedUser(serverData)
        
     }
