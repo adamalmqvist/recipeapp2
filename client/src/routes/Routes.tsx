@@ -5,7 +5,7 @@ import {PostView} from '../view/postview/PostView'
 import RoutingPath from './RoutingPath'
 import { SettingsView } from '../view/authenticatedveiws/SettingsView'
 import {CreateUserView} from '../view/createuserview/CreateUserView'
-import { homedir } from 'os'
+
 
 
 export const Routes = (props: { children: React.ReactChild }) => {
