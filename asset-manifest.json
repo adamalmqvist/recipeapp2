@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/recipeapp2/static/css/main.b97ee4c0.chunk.css",
+    "main.js": "/recipeapp2/static/js/main.960aaf9e.chunk.js",
+    "main.js.map": "/recipeapp2/static/js/main.960aaf9e.chunk.js.map",
+    "runtime-main.js": "/recipeapp2/static/js/runtime-main.07a62ff1.js",
+    "runtime-main.js.map": "/recipeapp2/static/js/runtime-main.07a62ff1.js.map",
+    "static/js/2.90b6acd2.chunk.js": "/recipeapp2/static/js/2.90b6acd2.chunk.js",
+    "static/js/2.90b6acd2.chunk.js.map": "/recipeapp2/static/js/2.90b6acd2.chunk.js.map",
+    "static/js/3.86d36ca4.chunk.js": "/recipeapp2/static/js/3.86d36ca4.chunk.js",
+    "static/js/3.86d36ca4.chunk.js.map": "/recipeapp2/static/js/3.86d36ca4.chunk.js.map",
+    "index.html": "/recipeapp2/index.html",
+    "static/css/main.b97ee4c0.chunk.css.map": "/recipeapp2/static/css/main.b97ee4c0.chunk.css.map",
+    "static/js/2.90b6acd2.chunk.js.LICENSE.txt": "/recipeapp2/static/js/2.90b6acd2.chunk.js.LICENSE.txt",
+    "static/media/fast-food.5acaf4b9.svg": "/recipeapp2/static/media/fast-food.5acaf4b9.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.07a62ff1.js",
+    "static/js/2.90b6acd2.chunk.js",
+    "static/css/main.b97ee4c0.chunk.css",
+    "static/js/main.960aaf9e.chunk.js"
+  ]
+}
